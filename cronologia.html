@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cronologia · Fitness Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/be6af1d745.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="common.js"></script>
+    <script defer src="script-cronologia.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="title">Fitness Tracker</div>
+      <div class="nav-actions">
+        <a class="icon-btn" id="home" aria-label="Home" href="index.html">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <button class="icon-btn" id="theme" aria-label="Passa al tema scuro">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1>Cronologia registrazioni</h1>
+
+      <div class="msg" id="msg" role="alert" hidden>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span></span>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn btn-secondary" id="btn-export" type="button">
+          Esporta JSON
+        </button>
+        <button class="btn btn-secondary" id="btn-import" type="button">
+          Importa JSON
+        </button>
+        <input type="file" id="file-import" accept="application/json" hidden />
+      </div>
+
+      <div id="cronologia"></div>
+    </main>
+  </body>
+</html>

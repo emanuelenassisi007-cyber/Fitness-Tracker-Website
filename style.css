@@ -1,0 +1,478 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #eef1f6;
+  --surface: #ffffff;
+  --field: #f4f6fa;
+  --ink: #101828;
+  --muted: #5b6577;
+  --line: #d8dee8;
+  --accent: #2d5bff;
+  --accent-ink: #ffffff;
+  --danger: #d92d20;
+  --success: #16a34a;
+  --success-ink: #ffffff;
+  --radius: 14px;
+  --colore-griglia-x: rgba(255, 99, 132, 0.15);
+  --colore-griglia-y: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --field: #0f141b;
+  --ink: #e8ecf3;
+  --muted: #98a2b3;
+  --line: #263040;
+  --accent: #7b96ff;
+  --accent-ink: #0d1117;
+  --danger: #f97066;
+  --success: #4ade80;
+  --success-ink: #04210f;
+  --colore-griglia-x: rgba(255, 99, 132, 0.25);
+  --colore-griglia-y: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Figtree", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 20px 56px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+/* ---------- Messaggi ---------- */
+.msg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 20px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.msg[hidden] {
+  display: none;
+}
+
+.msg.error {
+  background: var(--danger);
+}
+
+.msg.success {
+  background: var(--success);
+  color: var(--success-ink);
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 18px 0;
+}
+
+.title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+}
+
+.icon-btn.small {
+  width: 36px;
+  height: 36px;
+  font-size: 13px;
+}
+
+.icon-btn.danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link-tutti {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 9vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-align: left;
+  margin: 24px 0 28px;
+}
+
+h2 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* ---------- Form ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field > span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+input,
+select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+input::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  outline-offset: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  width: 100%;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    filter 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.985);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.toolbar .btn {
+  flex: 1;
+  height: 44px;
+}
+
+/* ---------- Stato (elemento principale) ---------- */
+.status {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius);
+  padding: 24px 22px 26px;
+  margin-bottom: 20px;
+}
+
+.status.raggiunto {
+  background: var(--success);
+  color: var(--success-ink);
+}
+
+.status h2 {
+  color: inherit;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.status-value {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: clamp(64px, 22vw, 104px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-value .unit {
+  font-size: 0.32em;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-left: 8px;
+}
+
+.status-label {
+  margin: 6px 0 0;
+  opacity: 0.85;
+}
+
+/* ---------- Risultato calorie ---------- */
+.result {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+
+.result-label {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.result-value {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.riepilogo {
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.riepilogo[hidden] {
+  display: none;
+}
+
+.riepilogo-riga {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.riepilogo-riga span {
+  color: var(--muted);
+}
+
+/* ---------- Storico / Cronologia ---------- */
+#storico:empty::before {
+  content: "Nessun giorno registrato. Salva il primo giorno qui sopra.";
+}
+
+#cronologia:empty::before {
+  content: "Nessun giorno registrato. Salva il primo giorno dalla pagina principale.";
+}
+
+#storico:empty::before,
+#cronologia:empty::before {
+  display: block;
+  padding: 16px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 15px;
+  text-align: center;
+}
+
+#storico > * {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+#storico > *:last-child {
+  border-bottom: none;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  background: var(--field);
+  border-radius: 10px;
+}
+
+.riga {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.riga .data,
+.box-dati .data {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.riga .dati b,
+.box-dati .dati b {
+  font-weight: 600;
+}
+
+.box-dati {
+  display: flex;
+  width: 100%;
+  background-color: var(--field);
+  padding: 12px 15px;
+  border-radius: 12px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.box-dati .dati {
+  flex: 1;
+  text-align: right;
+}
+
+.azioni {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 420px) {
+  body {
+    padding: 0 14px 40px;
+  }
+  .panel {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
