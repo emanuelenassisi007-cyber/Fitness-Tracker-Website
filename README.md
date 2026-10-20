@@ -6,7 +6,7 @@
 
 A lightweight, privacy-focused **Fitness Tracker** web application. It allows users to log their daily calorie intake, track weight fluctuations, calculate their Basal Metabolic Rate (BMR), and visualize their weight journey over time.
 
- **[View Live Demo](https://emanuelenassisi007-cyber.github.io/Fitness-Tracker-Website/)**
+ **[View Web Site](https://emanuelenassisi007-cyber.github.io/Fitness-Tracker-Website/)**
 
 ---
 
@@ -33,7 +33,10 @@ A lightweight, privacy-focused **Fitness Tracker** web application. It allows us
 
 ```text
 ├── README.md          
-├── index.html          
+├── index.html
+├── cronologia.html
+├── script-cronologia.js
+├── common.js
 ├── script.js        
 └── style.css          
 ```
@@ -52,9 +55,11 @@ Instead of loading heavy charting libraries, the application maps the minimum an
 
 ---
 
-## Future Improvements
-
-- [ ]  **Responsive Inputs:** Refine the CSS layout to better support smaller mobile screens.
-- [ ]  **Dark Mode:** Add a modern dark theme toggle.
-- [ ]  **Data Management:** Add a button to delete specific entries or clear the entire history.
-- [ ]  **Advanced Graphics:** Add grid lines and dates to the canvas chart axes.
+## Recently added improvements
+ - **Responsive Inputs:** Refine the CSS layout to better support smaller mobile screens.
+ - **Dark Mode:** Add a modern dark theme toggle.
+ -  **Data Management:** Add a button to delete specific entries or clear the entire history.
+## Future improvments
+- [ ] **Backend:** Adding a backend to the site for data and chart management.
+- [ ] **User managment:** Centralized user management, with login, registration, and authentication.
+- [ ] **Addition of the settings section:** addition of settings with specific sections such as language change, password change, security, and support.
